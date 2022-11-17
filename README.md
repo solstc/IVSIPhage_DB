@@ -21,5 +21,5 @@ To use this pipeline you need to have R >= 4.2.1 and RStudio 2022.07.1+554. This
 
 ## Authors
 
-🧬 Soledad T. Carrasco [link](https://www.researchgate.net/profile/Soledad-Carrasco).
+🧬 Soledad T. Carrasco [link](https://www.researchgate.net/profile/Soledad-Carrasco).<br />
 🧬 Hector R. Morbidoni [link](https://www.researchgate.net/profile/Hector-Morbidoni).
