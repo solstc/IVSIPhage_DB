@@ -12,6 +12,7 @@ This pipeline generate two kind of outputs: an excel sheet with the information 
 To use this pipeline you need to have R >= 4.2.1 and RStudio 2022.07.1+554. This code was tasted on :computer: Ubuntu 22.04.1 LTS.
 
 ## Running IVSIPhage_DB 
+
 1. Download ZIP file from Github and unzip it. 
 2. Go to data directory and open the file ‘Organism_of_interest.csv’. Edit the second line typing the name of the organism you want to create a database from; i.e,  ‘Staphylococcus’ means a database for *Staphylococcus* phages. Save changes.
 3. Go back to root folder, find ‘IVSIPhage_DB.Rproj’, double click to open it with R Studio Software.
