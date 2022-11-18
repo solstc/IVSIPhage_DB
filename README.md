@@ -4,7 +4,7 @@ We herein describe a pipeline for the generation of a local database (**OLD**, *
 
 ### Introduction
 
-IVSIPhage_DB is a free and open source tool implemented in R, created as part of a Ph. D Thesis :scientist: (Laboratorio de Mircobiología Molecular, Facultad de Ciencias Médicas, Universidad Nacional de Rosario, Rosario, Argentina). The program was designed as an R Proyect, so that the user could generate OLD  without necessarily downloading the *.gbf* files. Although originally planned for phages active on *Staphylococcus spp.*, it also works for other bacterial species. This pipeline generates two kind of outputs: 1- an excel sheet with the information of the phages; 2- the *.gbf* of those phages. 
+IVSIPhage_DB is a free and open source tool implemented in R, created as part of a Ph. D Thesis :scientist: (Laboratorio de Mircobiología Molecular, Facultad de Ciencias Médicas, Universidad Nacional de Rosario, Rosario, Argentina). The program was designed as an R Proyect, so that the user could generate OLD  without necessarily downloading the *.gbf* files. Although originally planned for phages active on *Staphylococcus spp.*, it also works for other bacterial species. This pipeline generates two kind of outputs: i) an excel sheet with the information of the phages; ii) the *.gbf* of those phages. 
 
 ### Prerequisites
 
