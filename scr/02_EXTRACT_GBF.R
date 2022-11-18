@@ -5,9 +5,12 @@ setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 # my_ids = Gi of phages
 my_ids <- read.xlsx2('../data/database_info.xlsx', 1, header = T)[, 2] 
 
-# Search and retrieve GBK ----
-
+# Set wd ----
+setwd('../data')
+dir.create('gbk')
 setwd('../data/gbk')
+
+# Search and retrieve GBK ----
 
 for (seq_start in my_ids) {
   all_recs <-
