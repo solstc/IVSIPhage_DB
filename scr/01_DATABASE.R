@@ -50,60 +50,13 @@ temporary_dt <-
   temporary_dt[, c('Gi', 'SubType', 'SubName') := lapply(.SD, as.factor), .SDcols = c('Gi', 'SubType', 'SubName')]
 
 temporary_dt <-
-  cSplit(
-    temporary_dt,
-    splitCols = 'SubType',
-    sep = '|',
-    direction = 'wide',
-    drop = F,
-    type.convert = F
-  )
+  temporary_dt %>% separate_rows(SubType, SubName, sep = "\\|")
 temporary_dt <-
-  cSplit(
-    temporary_dt,
-    splitCols = 'SubName',
-    sep = '|',
-    direction = 'wide',
-    drop = F,
-    type.convert = F
-  )
-
-temporary_dt <- temporary_dt[,-c('SubName', 'SubType')]
-temporary_dt <-
-  temporary_dt[, c('s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9') := .(
-    paste0(SubType_1, '|', SubName_1),
-    paste0(SubType_2, '|', SubName_2),
-    paste0(SubType_3, '|', SubName_3),
-    paste0(SubType_4, '|', SubName_4),
-    paste0(SubType_5, '|', SubName_5),
-    paste0(SubType_6, '|', SubName_6),
-    paste0(SubType_7, '|', SubName_7),
-    paste0(SubType_8, '|', SubName_8),
-    paste0(SubType_9, '|', SubName_9)
-  )][, c('Gi', 's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9')]
-
-temporary_dt <- melt(temporary_dt, id.vars = 'Gi')
-temporary_dt <-
-  cSplit(
-    temporary_dt,
-    splitCols = 'value',
-    sep = '|',
-    direction = 'wide',
-    drop = F,
-    type.convert = F
-  )
-
-temporary_dt <- dcast(
-  temporary_dt,
-  Gi ~ value_1,
-  fun.aggregate = function(x)
-    paste(x, collapse = '_'),
-  value.var = 'value_2'
-)
+  dcast(as.data.table(temporary_dt), Gi~SubType, value.var = 'SubName')
 
 p_dt <- merge(p_dt, temporary_dt, by = 'Gi')
 p_dt <-
-  p_dt[, strain_2 := strain][, -c('SubName', 'SubType', 'NA', 'strain')]
+  p_dt[, strain_2 := strain][, -c('SubName', 'SubType', 'NA')]
 p_dt[p_dt == ''] <- NA
 
 # Save data table ----
